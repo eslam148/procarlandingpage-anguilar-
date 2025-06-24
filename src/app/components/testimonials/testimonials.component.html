@@ -1,0 +1,106 @@
+<section class="testimonials" [attr.data-direction]="getCurrentDirection()">
+  <div class="container">
+    <h2 class="section-title animate-fade-in" #animateElement>
+      {{ 'landing.testimonials_title' | translate | async }}
+    </h2>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container text-center">
+      <div class="spinner"></div>
+      <p>{{ 'common.loading' | translate | async }}</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="hasError && !isLoading" class="error-container text-center">
+      <p class="error-message">{{ errorMessage }}</p>
+      <button (click)="loadTestimonials()" class="retry-btn">
+        {{ 'common.retry' | translate | async }}
+      </button>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoading && !hasError && testimonialsData.length === 0" class="empty-container text-center">
+      <p>{{ 'landing.no_testimonials' | translate | async }}</p>
+    </div>
+
+    <!-- Testimonials Slider -->
+    <div *ngIf="!isLoading && !hasError && testimonialsData.length > 0"
+         class="testimonials-slider" #slider [attr.data-rtl]="isRTL">
+      <!-- Slider Container -->
+      <div class="slider-wrapper" [style.transform]="getSliderTransform()">
+        <div class="testimonial-slide"
+             *ngFor="let testimonial of testimonialsData; let i = index"
+             [class.active]="i === currentSlide">
+          <div class="testimonial-card">
+            <!-- Dynamic Stars Rating -->
+            <div class="stars animate-twinkle">
+              <span class="stars-container">
+                <span *ngFor="let star of getStarsArray(testimonial.rating); let j = index"
+                      class="star"
+                      [class.filled]="j < testimonial.rating">
+                  ⭐
+                </span>
+                <span *ngFor="let star of getStarsArray(5 - testimonial.rating); let k = index"
+                      class="star empty">
+                  ☆
+                </span>
+              </span>
+            </div>
+
+            <!-- Testimonial Comment -->
+            <p class="testimonial-comment">
+              "{{ testimonial.comment }}"
+            </p>
+
+            <!-- Author Information -->
+            <div class="testimonial-author">
+              <strong class="nurse-name">{{ testimonial.nurseFullName }}</strong>
+              <div class="patient-info">
+                <span class="patient-name">{{ 'landing.patient' | translate | async }}: {{ testimonial.patientName }}</span>
+                <span class="testimonial-date">{{ formatDate(testimonial.createdAt) }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Arrows - Only show if more than one testimonial -->
+      <button *ngIf="testimonialsData.length > 1"
+              class="slider-nav prev"
+              (click)="previousSlide()"
+              [disabled]="false"
+              [attr.aria-label]="isRTL ? 'الشهادة السابقة' : 'Previous testimonial'"
+              [attr.data-direction]="isRTL ? 'rtl-prev' : 'ltr-prev'">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M15 18L9 12L15 6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <button *ngIf="testimonialsData.length > 1"
+              class="slider-nav next"
+              (click)="nextSlide()"
+              [disabled]="false"
+              [attr.aria-label]="isRTL ? 'الشهادة التالية' : 'Next testimonial'"
+              [attr.data-direction]="isRTL ? 'rtl-next' : 'ltr-next'">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 18L15 12L9 6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- Dot Indicators - Only show if more than one testimonial -->
+      <div *ngIf="testimonialsData.length > 1" class="slider-dots">
+        <button *ngFor="let testimonial of testimonialsData; let i = index"
+                class="slider-dot"
+                [class.active]="i === currentSlide"
+                (click)="goToSlide(i)"
+                [attr.aria-label]="isRTL ? 'الانتقال للشهادة ' + (i + 1) : 'Go to testimonial ' + (i + 1)">
+        </button>
+      </div>
+
+      <!-- Slider Counter - Only show if more than one testimonial -->
+      <div *ngIf="testimonialsData.length > 1" class="slider-counter" [attr.data-rtl]="isRTL">
+        <span>{{ currentSlide + 1 }} / {{ testimonialsData.length }}</span>
+      </div>
+    </div>
+  </div>
+</section>
