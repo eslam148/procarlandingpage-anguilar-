@@ -13,7 +13,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
             <h3 class="footer-title">proCare</h3>
             <p>{{ 'landing.footer_description' | translate | async }}</p>
             <div class="social-links">
-              <a href="#" aria-label="Facebook" class="social-link">📘</a>
+              <a href="https://www.facebook.com/share/1Brzg9uWRF/?mibextid=wwXIfr" target="_blank" aria-label="Facebook" class="social-link">📘</a>
               <a href="#" aria-label="Twitter" class="social-link">🐦</a>
               <a href="#" aria-label="Instagram" class="social-link">📷</a>
               <a href="#" aria-label="LinkedIn" class="social-link">💼</a>
@@ -33,9 +33,11 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
           <div class="footer-section animate-slide-up" #animateElement [style.--delay]="'0.2s'">
             <h4>{{ 'landing.footer_contact' | translate | async }}</h4>
             <ul>
-              <li>📞 {{ 'landing.footer_phone' | translate | async }}</li>
-              <li>✉️ {{ 'landing.footer_email' | translate | async }}</li>
-              <li>📍 {{ 'landing.footer_address' | translate | async }}</li>
+              <li>📞 <a href="tel:0224554050">{{ 'landing.footer_phone' | translate | async }}</a></li>
+              <li>✉️ <a href="mailto:info@procare.live">{{ 'landing.footer_email' | translate | async }}</a></li>
+              <li>👥 <a href="mailto:hr@procare.live">{{ 'landing.footer_email_hr' | translate | async }}</a></li>
+              <li>🛠️ <a href="mailto:support@procare.live">{{ 'landing.footer_email_support' | translate | async }}</a></li>
+              <li>📍 <a href="https://maps.app.goo.gl/JmxQnrNFHcw6eRhU9?g_st=ac" target="_blank">{{ 'landing.footer_address' | translate | async }}</a></li>
             </ul>
           </div>
 
