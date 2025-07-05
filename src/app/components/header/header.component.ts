@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
- import { TranslatePipe } from '../../pipes/translate.pipe';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { TranslationService } from '../../services/translation.service';
     <header [class.scrolled]="isScrolled">
       <nav>
         <div class="container">
-          <div class="logo">proCare</div>
+          <div class="logo">ProCare</div>
           <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
           <div class="nav-links">
             <a href="#features">{{ 'landing.features' | translate | async }}</a>
@@ -23,7 +23,7 @@ import { TranslationService } from '../../services/translation.service';
             <!-- Language Switcher -->
             <div class="lang-switcher">
               <button class="lang-btn" (click)="toggleLanguage()">
-                {{ currentLang === 'ar' ? 'العربية' : 'English' }}
+                {{ currentLang === 'ar' ? 'English':'العربية' }}
               </button>
             </div>
           </div>

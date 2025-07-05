@@ -21,7 +21,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
           </div>
         </div>
         <div class="hero-image animate-fadeInRight" #animateElement>
-          <img src="assets/images/hero-image.svg" alt="proCare Healthcare App">
+          <img src="assets/images/hero-image.svg" alt="ProCare Healthcare App">
         </div>
       </div>
     </section>

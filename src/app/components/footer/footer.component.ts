@@ -10,13 +10,13 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
       <div class="container">
         <div class="footer-content">
           <div class="footer-section animate-slide-up" #animateElement [style.--delay]="'0s'">
-            <h3 class="footer-title">proCare</h3>
+            <h3 class="footer-title">ProCare</h3>
             <p>{{ 'landing.footer_description' | translate | async }}</p>
             <div class="social-links">
-              <a href="https://www.facebook.com/share/1Brzg9uWRF/?mibextid=wwXIfr" target="_blank" aria-label="Facebook" class="social-link">📘</a>
-              <a href="#" aria-label="Twitter" class="social-link">🐦</a>
-              <a href="#" aria-label="Instagram" class="social-link">📷</a>
-              <a href="#" aria-label="LinkedIn" class="social-link">💼</a>
+              <a href="https://www.facebook.com/share/1Brzg9uWRF/?mibextid=wwXIfr" target="_blank" aria-label="Facebook" class="social-link"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="Twitter" class="social-link"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" aria-label="Instagram" class="social-link"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="YouTube" class="social-link"><i class="bi bi-youtube"></i></a>
             </div>
           </div>
 
@@ -37,7 +37,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
               <li>✉️ <a href="mailto:info@procare.live">{{ 'landing.footer_email' | translate | async }}</a></li>
               <li>👥 <a href="mailto:hr@procare.live">{{ 'landing.footer_email_hr' | translate | async }}</a></li>
               <li>🛠️ <a href="mailto:support@procare.live">{{ 'landing.footer_email_support' | translate | async }}</a></li>
-              <li>📍 <a href="https://maps.app.goo.gl/JmxQnrNFHcw6eRhU9?g_st=ac" target="_blank">{{ 'landing.footer_address' | translate | async }}</a></li>
+              <li><i class="bi bi-geo-alt-fill"></i> <a href="https://maps.app.goo.gl/JmxQnrNFHcw6eRhU9?g_st=ac" target="_blank">{{ 'landing.footer_address' | translate | async }}</a></li>
             </ul>
           </div>
 
@@ -55,7 +55,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
         </div>
 
         <div class="footer-bottom animate-fade-in" #animateElement [style.--delay]="'0.4s'">
-          <p>&copy; 2024 proCare. {{ 'landing.footer_rights' | translate | async }}</p>
+          <p>&copy; 2024 ProCare. {{ 'landing.footer_rights' | translate | async }}</p>
         </div>
       </div>
     </footer>

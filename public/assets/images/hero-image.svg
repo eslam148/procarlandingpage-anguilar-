@@ -8,5 +8,5 @@
 <rect x="160" y="210" width="80" height="30" rx="5" fill="#FDD5DD"/>
 <circle cx="200" cy="80" r="25" fill="#CD2C4E"/>
 <path d="M190 75L200 85L210 75" stroke="white" stroke-width="2" fill="none"/>
-<text x="200" y="270" text-anchor="middle" fill="#CD2C4E" font-family="Arial, sans-serif" font-size="16" font-weight="bold">proCare App</text>
+<text x="200" y="270" text-anchor="middle" fill="#CD2C4E" font-family="Arial, sans-serif" font-size="16" font-weight="bold">ProCare App</text>
 </svg>
