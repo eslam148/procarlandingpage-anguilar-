@@ -206,18 +206,7 @@ import { TranslationService } from '../../services/translation.service';
       }
     }
 
-    /* Dark mode support */
-    @media (prefers-color-scheme: dark) {
-      header {
-        background: rgba(40, 40, 40, 0.95);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
 
-      header.scrolled {
-        background: rgba(20, 20, 20, 0.95);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      }
-    }
 
     /* Mobile responsiveness */
     @media (max-width: 768px) {

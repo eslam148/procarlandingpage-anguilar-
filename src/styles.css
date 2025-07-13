@@ -7,6 +7,7 @@
   --light-color: #fff;
   --text-color: #333;
   --dark-color: #1a1d23;
+  color-scheme: light only;
 }
 
 /* Base styles */
@@ -14,11 +15,9 @@
 body { font-family: 'Cairo', sans-serif; color: var(--text); line-height: 1.6; }
 .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-/* Dark mode */
-.dark-theme, [data-coreui-theme="dark"] {
-  --text: #ffffff;
-  --light: #1a1d23;
-  --secondary: #2d3748;
+/* Disable browser theme detection */
+* {
+  color-scheme: light only;
 }
 
 /* Header & Navigation */
