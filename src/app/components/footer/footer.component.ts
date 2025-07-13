@@ -62,7 +62,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
         </div>
 
         <div class="footer-bottom animate-fade-in" #animateElement [style.--delay]="'0.4s'">
-          <p>&copy; 2024 ProCare. {{ 'landing.footer_rights' | translate | async }}</p>
+          <p>&copy; {{ year }} ProCare. {{ 'landing.footer_rights' | translate | async }}</p>
         </div>
       </div>
     </footer>
@@ -233,6 +233,7 @@ export class LandingFooterComponent implements OnInit, AfterViewInit, OnDestroy 
   @ViewChildren('animateElement') animateElements!: QueryList<ElementRef>;
 
   private observer!: IntersectionObserver;
+  year = new Date().getFullYear();
 
   ngOnInit() {
     // Setup intersection observer for scroll animations
