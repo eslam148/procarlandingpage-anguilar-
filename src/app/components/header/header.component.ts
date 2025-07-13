@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { TranslationService } from '../../services/translation.service';
@@ -7,18 +8,28 @@ import { TranslationService } from '../../services/translation.service';
 @Component({
   selector: 'app-landing-header',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, RouterModule, TranslatePipe],
   template: `
     <header [class.scrolled]="isScrolled">
       <nav>
         <div class="container">
           <div class="logo">ProCare</div>
-          <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">☰</button>
-          <div class="nav-links">
-            <a href="#features">{{ 'landing.features' | translate | async }}</a>
-            <a href="#how-it-works">{{ 'landing.how_it_works' | translate | async }}</a>
-            <a href="#why-choose">{{ 'landing.why_choose' | translate | async }}</a>
-            <a href="#faq">{{ 'landing.faq' | translate | async }}</a>
+          <button
+            class="mobile-menu-toggle"
+            [class.active]="isMobileMenuOpen"
+            (click)="toggleMobileMenu()"
+            aria-label="Toggle mobile menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="nav-links" [class.mobile-open]="isMobileMenuOpen">
+            <a href="#features" (click)="closeMobileMenu()">{{ 'landing.features' | translate | async }}</a>
+            <a href="#how-it-works" (click)="closeMobileMenu()">{{ 'landing.how_it_works' | translate | async }}</a>
+            <a href="#why-choose" (click)="closeMobileMenu()">{{ 'landing.why_choose' | translate | async }}</a>
+            <a href="#faq" (click)="closeMobileMenu()">{{ 'landing.faq' | translate | async }}</a>
+            <a routerLink="/terms" (click)="closeMobileMenu()">{{ 'terms.title' | translate | async }}</a>
 
             <!-- Language Switcher -->
             <div class="lang-switcher">
@@ -61,6 +72,9 @@ import { TranslationService } from '../../services/translation.service';
         display: flex;
         justify-content: space-between;
         align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
       }
     }
 
@@ -161,12 +175,34 @@ import { TranslationService } from '../../services/translation.service';
       display: none;
       background: none;
       border: none;
-      font-size: 1.5rem;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      padding: 0.5rem;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 2rem;
+      height: 2rem;
+      position: relative;
 
-      &:hover {
-        transform: scale(1.1);
+      span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: var(--primary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        transform-origin: center;
+      }
+
+      &.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      &.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      &.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
       }
     }
 
@@ -185,8 +221,53 @@ import { TranslationService } from '../../services/translation.service';
 
     /* Mobile responsiveness */
     @media (max-width: 768px) {
-      .mobile-menu-toggle { display: block; }
-      .nav-links { display: none; }
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--light);
+        flex-direction: column;
+        padding: 2rem 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        gap: 1rem;
+
+        &.mobile-open {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        a {
+          padding: 1rem 0;
+          font-size: 1.1rem;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          width: 100%;
+          text-align: center;
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+
+        .lang-switcher {
+          margin-top: 1rem;
+
+          .lang-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+          }
+        }
+      }
 
       nav {
         padding: 0.75rem 0;
@@ -205,9 +286,25 @@ import { TranslationService } from '../../services/translation.service';
       }
     }
 
+    /* Tablet responsiveness */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
+      }
+
+      .lang-switcher .lang-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+
     /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
-      header, nav, .logo, .nav-links a, .lang-btn {
+      header, nav, .logo, .nav-links a, .lang-btn, .mobile-menu-toggle span {
         transition: none;
       }
     }
@@ -216,6 +313,7 @@ import { TranslationService } from '../../services/translation.service';
 export class LandingHeaderComponent implements OnInit, OnDestroy {
   currentLang = 'ar';
   isScrolled = false;
+  isMobileMenuOpen = false;
   private destroy$ = new Subject<void>();
   isChangingLanguage = false;
 
@@ -241,9 +339,25 @@ export class LandingHeaderComponent implements OnInit, OnDestroy {
     this.checkScrollPosition();
   }
 
+  @HostListener('window:resize', [])
+  onWindowResize() {
+    // Close mobile menu on resize to desktop
+    if (window.innerWidth > 768) {
+      this.isMobileMenuOpen = false;
+    }
+  }
+
   private checkScrollPosition(): void {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     this.isScrolled = scrollPosition > 50; // Add scrolled class after 50px
+  }
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
   }
 
   toggleLanguage() {
@@ -258,6 +372,8 @@ export class LandingHeaderComponent implements OnInit, OnDestroy {
       htmlElement.setAttribute('dir', 'ltr');
       htmlElement.setAttribute('lang', 'en');
     }
+    // Close mobile menu after language change
+    this.closeMobileMenu();
   }
 
   ngOnDestroy(): void {

@@ -1,10 +1,12 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChildren, QueryList, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { TranslatePipe } from '../../pipes/translate.pipe';
+
 @Component({
   selector: 'app-landing-footer',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, RouterModule, TranslatePipe],
   template: `
     <footer class="footer">
       <div class="container">
@@ -13,7 +15,11 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
             <h3 class="footer-title">ProCare</h3>
             <p>{{ 'landing.footer_description' | translate | async }}</p>
             <div class="social-links">
-              <a href="https://www.facebook.com/share/1Brzg9uWRF/?mibextid=wwXIfr" target="_blank" aria-label="Facebook" class="social-link"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.facebook.com/share/1Brzg9uWRF/?mibextid=wwXIfr" target="_blank" aria-label="Facebook" class="social-link facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                </svg>
+              </a>
               <a href="#" aria-label="Twitter" class="social-link"><i class="bi bi-twitter-x"></i></a>
               <a href="#" aria-label="Instagram" class="social-link"><i class="bi bi-instagram"></i></a>
               <a href="#" aria-label="YouTube" class="social-link"><i class="bi bi-youtube"></i></a>
@@ -27,6 +33,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
               <li><a href="#how-it-works">{{ 'landing.how_it_works' | translate | async }}</a></li>
               <li><a href="#why-choose">{{ 'landing.why_choose' | translate | async }}</a></li>
               <li><a href="#faq">{{ 'landing.faq' | translate | async }}</a></li>
+              <li><a routerLink="/terms">{{ 'terms.title' | translate | async }}</a></li>
             </ul>
           </div>
 
@@ -112,12 +119,30 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
       gap: 1rem;
 
       .social-link {
+        color: white;
         font-size: 1.5rem;
         text-decoration: none;
-        transition: transform 0.3s ease;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
 
         &:hover {
-          transform: scale(1.2) rotate(10deg);
+          transform: translateY(-3px);
+          background: rgba(255, 255, 255, 0.2);
+        }
+
+        &.facebook:hover {
+          background: #1877f2;
+        }
+
+        svg {
+          width: 24px;
+          height: 24px;
         }
       }
     }

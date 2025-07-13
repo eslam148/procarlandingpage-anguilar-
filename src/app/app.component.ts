@@ -1,26 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LandingHeaderComponent } from './components/header/header.component';
-import { LandingHeroComponent } from './components/hero/hero.component';
-import { LandingFeaturesComponent } from './components/features/features.component';
-import { LandingHowItWorksComponent } from './components/how-it-works/how-it-works.component';
-import { LandingWhyChooseComponent } from './components/why-choose/why-choose.component';
-import { LandingTestimonialsComponent } from './components/testimonials/testimonials.component';
-import { LandingFooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
    imports: [
     CommonModule,
-    RouterOutlet,
-    LandingHeaderComponent,
-    LandingHeroComponent,
-    LandingFeaturesComponent,
-    LandingHowItWorksComponent,
-    LandingWhyChooseComponent,
-    LandingTestimonialsComponent,
-    LandingFooterComponent
+    RouterOutlet
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

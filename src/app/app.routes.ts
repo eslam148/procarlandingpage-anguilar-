@@ -1,3 +1,21 @@
 import { Routes } from '@angular/router';
+import { TermsComponent } from './components/terms/terms.component';
+import { LandingpageComponent } from './components/landingpage/landingpage.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'landing',
+    pathMatch: 'full'
+  },
+  {
+    path: 'landing',
+    component: LandingpageComponent,
+    title: 'ProCare'
+  },
+  {
+    path: 'terms',
+    component: TermsComponent,
+    title: 'Terms and Conditions - ProCare'
+  }
+];
