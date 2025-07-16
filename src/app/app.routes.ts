@@ -15,7 +15,12 @@ export const routes: Routes = [
   },
   {
     path: 'terms',
-    component: TermsComponent,
+    loadComponent: () => import('./components/terms/terms.component').then(m => m.TermsComponent),
     title: 'Terms and Conditions - ProCare'
+  },
+  {
+    path: '**',
+    redirectTo: 'landing',
+    pathMatch: 'full'
   }
 ];
