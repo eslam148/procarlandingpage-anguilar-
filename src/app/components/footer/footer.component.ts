@@ -41,7 +41,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
           <div class="footer-section animate-slide-up" #animateElement [style.--delay]="'0.2s'">
             <h4>{{ 'landing.footer_contact' | translate | async }}</h4>
             <ul>
-              <li>📞 <a href="tel:0224554050">{{ 'landing.footer_phone' | translate | async }}</a></li>
+              <li>📞 <a href="tel:+201097478188">{{ 'landing.footer_phone' | translate | async }}</a></li>
               <li>✉️ <a href="mailto:info@procare.live">{{ 'landing.footer_email' | translate | async }}</a></li>
               <li>👥 <a href="mailto:hr@procare.live">{{ 'landing.footer_email_hr' | translate | async }}</a></li>
               <li>🛠️ <a href="mailto:support@procare.live">{{ 'landing.footer_email_support' | translate | async }}</a></li>
