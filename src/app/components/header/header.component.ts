@@ -30,6 +30,7 @@ import { TranslationService } from '../../services/translation.service';
             <a href="#why-choose" (click)="closeMobileMenu()">{{ 'landing.why_choose' | translate | async }}</a>
             <a href="#faq" (click)="closeMobileMenu()">{{ 'landing.faq' | translate | async }}</a>
             <a routerLink="/terms" (click)="closeMobileMenu()">{{ 'terms.title' | translate | async }}</a>
+            <a routerLink="/privacy" (click)="closeMobileMenu()">{{ 'privacy.title' | translate | async }}</a>
 
             <!-- Language Switcher -->
             <div class="lang-switcher">

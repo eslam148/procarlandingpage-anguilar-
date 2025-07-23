@@ -892,5 +892,77 @@
       "message": "Your ProCare account has been permanently deleted. Thank you for using our services.",
       "backToHome": "Back to Home"
     }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "How we collect, use, and protect your personal information",
+    "introduction": {
+      "title": "1. Introduction",
+      "content": "At ProCare, we are committed to protecting the privacy of our users. This policy describes how we collect, use, and share information that you provide to us when using our application."
+    },
+    "dataCollection": {
+      "title": "2. Information We Collect",
+      "content": "We collect the following types of information to provide you with the best healthcare services:",
+      "items": {
+        "fullName": "Full name",
+        "email": "Email address",
+        "phone": "Phone number",
+        "gender": "Gender",
+        "birthDate": "Date of birth",
+        "location": "Location",
+        "address": "Address",
+        "healthData": "Health data (such as health condition, medications, chronic diseases, examination history, etc.)",
+        "usageData": "Application usage data",
+        "cookies": "Cookies"
+      }
+    },
+    "dataUsage": {
+      "title": "3. How We Use Your Information",
+      "content": "We use your information for the following purposes:",
+      "purposes": {
+        "serviceDelivery": "Providing efficient home nursing services",
+        "userExperience": "Improving user experience within the application",
+        "communication": "Communicating with you regarding appointments or updates",
+        "notifications": "Sending important notifications and alerts",
+        "serviceImprovement": "Improving our services based on user feedback"
+      }
+    },
+    "dataSharing": {
+      "title": "4. Information Sharing",
+      "content": "We do not sell or share your data with any third party, except in the following cases:",
+      "cases": {
+        "consent": "With your explicit consent",
+        "legal": "Compliance with a legal order or government authority",
+        "partners": "Service delivery through trusted partners committed to maintaining privacy"
+      }
+    },
+    "security": {
+      "title": "5. Security",
+      "content": "We use advanced protection technologies to ensure the security of your personal and medical data."
+    },
+    "cookies": {
+      "title": "6. Cookies",
+      "content": "We use cookies to improve application performance and analyze its usage. You can always control them from your device settings."
+    },
+    "userRights": {
+      "title": "7. Your Rights",
+      "content": "You have the right to:",
+      "rights": {
+        "access": "Access your data",
+        "modify": "Request modification or deletion of your data",
+        "withdraw": "Withdraw consent at any time"
+      }
+    },
+    "contact": {
+      "title": "8. Contact Us",
+      "content": "If you have any questions about this privacy policy, please contact us:",
+      "email": "Email:",
+      "phone": "Phone:"
+    },
+    "lastUpdated": {
+      "title": "9. Last Updated",
+      "content": "This privacy policy was last updated on January 2025. We may update this policy from time to time, and we will notify you of any changes."
+    },
+    "backToHome": "Back to Home"
   }
 }

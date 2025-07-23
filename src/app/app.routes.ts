@@ -19,6 +19,11 @@ export const routes: Routes = [
     title: 'Terms and Conditions - ProCare'
   },
   {
+    path: 'privacy',
+    loadComponent: () => import('./components/privacy/privacy.component').then(m => m.PrivacyComponent),
+    title: 'Privacy Policy - ProCare'
+  },
+  {
     path: 'delete-account',
     loadComponent: () => import('./components/delete-account/delete-account.component').then(m => m.DeleteAccountComponent),
     title: 'Delete Account - ProCare'

@@ -35,6 +35,7 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
               <li><a href="#why-choose">{{ 'landing.why_choose' | translate | async }}</a></li>
               <li><a href="#faq">{{ 'landing.faq' | translate | async }}</a></li>
               <li><a routerLink="/terms">{{ 'terms.title' | translate | async }}</a></li>
+              <li><a routerLink="/privacy">{{ 'privacy.title' | translate | async }}</a></li>
             </ul>
           </div>
 
