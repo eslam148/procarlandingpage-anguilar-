@@ -860,5 +860,37 @@
   },
   "nurse": {
     "patient": "Patient"
+  },
+  "deleteAccount": {
+    "title": "Delete Account",
+    "subtitle": "Permanently remove your ProCare account and all associated data",
+    "warning": {
+      "title": "Important: This action cannot be undone",
+      "point1": "All your personal data will be permanently deleted",
+      "point2": "Your reservation history will be removed",
+      "point3": "You will lose access to all ProCare services",
+      "point4": "This action cannot be reversed"
+    },
+    "step1": {
+      "title": "Email Verification",
+      "description": "Enter your registered email address to receive a verification code",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "sendOTP": "Send Verification Code"
+    },
+    "step2": {
+      "title": "Verify Your Identity",
+      "description": "Enter the 6-digit verification code sent to",
+      "otpLabel": "Verification Code",
+      "otpPlaceholder": "Enter 6-digit code",
+      "verify": "Verify Code and Delete Account",
+      "resend": "Resend Code",
+      "resendIn": "Resend in"
+    },
+    "success": {
+      "title": "Account Deleted Successfully",
+      "message": "Your ProCare account has been permanently deleted. Thank you for using our services.",
+      "backToHome": "Back to Home"
+    }
   }
 }
