@@ -12,10 +12,10 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
           <h1 class="animate-fadeInUp" #animateElement>{{ 'landing.hero_title' | translate | async }}</h1>
           <p class="animate-fadeInUp delay-1" #animateElement>{{ 'landing.hero_subtitle' | translate | async }}</p>
           <div class="app-buttons animate-fadeInUp delay-2" #animateElement>
-            <a href="#" class="app-button">
+            <a href="https://apps.apple.com/eg/app/procare/id6748255985" class="app-button">
               <img src="assets/images/app-store.svg" alt="App Store">
             </a>
-            <a href="#" class="app-button">
+            <a href="https://play.google.com/store/apps/details?id=com.exromeo.procare&hl=en" class="app-button">
               <img src="assets/images/google-play.svg" alt="Google Play">
             </a>
           </div>

@@ -53,10 +53,10 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
           <div class="footer-section animate-slide-up" #animateElement [style.--delay]="'0.3s'">
             <h4>{{ 'landing.footer_download' | translate | async }}</h4>
             <div class="app-buttons">
-              <a href="#" class="app-button">
+              <a href="https://apps.apple.com/eg/app/procare/id6748255985" class="app-button">
                 <img src="assets/images/app-store.svg" alt="App Store">
               </a>
-              <a href="#" class="app-button">
+              <a href="https://play.google.com/store/apps/details?id=com.exromeo.procare&hl=en" class="app-button">
                 <img src="assets/images/google-play.svg" alt="Google Play">
               </a>
             </div>
